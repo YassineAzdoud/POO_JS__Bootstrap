@@ -15,6 +15,8 @@ const counter1 = {
   name: 'Counter #1', value: 0, max: 5
 };
 
+
+
 const counter2 = {
   name: 'Counter #2', value: 0, max: 3
 };
@@ -32,3 +34,4 @@ while(canIncrementCounter(counter2)) {
   incrementCounter(counter2);
 }
 incrementCounter(counter2);
+

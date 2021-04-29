@@ -1,42 +1,40 @@
-class Counter {
-  constructor(name, max) {
-    this.value =6 ;
-    this.max = max;
-    this.name = name;
+class Phone {
+  constructor(color, weight, brand) {
+   this.color = color;
+   this.weight = weight;
+   this.brand = brand;
   }
-
-  getValue() {
-    return this.value;
+  phoneColor() {
+   return `The phone is ${this.color}`
   }
-
-  canIncrement() {
-    return this.value < this.max;
+  phoneWeight() {
+   return `With a weight ${this.weight}`
+  } 
+  phoneBrand() {
+   return` produced by ${this.brand}`
   }
-
-  increment() {
-    if (this.value < this.max) {
-      this.value += 1;
-      console.log(`Counter ${this.name}'s value is now ${this.value}`);
-    } else {
-      console.error(`Reached max (${this.max}) - Can't increment ${this.name}`);
+ }
+ class PhonePlus extends Phone {
+  constructor(color, weight, brand, price) {
+    super(color, weight, brand);
+    this.price = price;
+  }
+  phonePrice() {
+    return` At a cost ${this.price}`
+   }
+  phoneCategory(){
+    if(this.price > 1500){
+      return`Within the luxury category`
+    }else if(this.price < 1500 && this.price > 1000){
+      return`Within the middle category`
+    }else if(this.price < 1000){
+      return`In the cheap category`
     }
   }
 }
-
-counter1 = new Counter('Counter #1', 5);
-counter2 = new Counter('Counter #2', 3);
-
-
-// Cette boucle est exécutée tant que le compteur peut être incrémenté
-while(counter1.canIncrement()) {
-  counter1.increment();
-}
-// Cette tentative d'incrémenter le compteur, sans vérification préalable,
-// va se solder par un échec
-counter1.increment();
-
-// Idem
-while(counter2.canIncrement()) {
-  counter2.increment();
-}
-counter2.increment();
+var Phone1 = new PhonePlus("red",3,"apple",980);
+var Phone2 = new PhonePlus("black",3,"apple",1380);
+var Phone3 = new PhonePlus("gold",3,"apple",2000);
+console.log(Phone1.phoneColor(),Phone1.phoneWeight(),Phone1.phoneBrand(),Phone1.phonePrice(),Phone1.phoneCategory());
+console.log(Phone2.phoneColor(),Phone2.phoneWeight(),Phone2.phoneBrand(),Phone2.phonePrice(),Phone2.phoneCategory());
+console.log(Phone3.phoneColor(),Phone3.phoneWeight(),Phone3.phoneBrand(),Phone3.phonePrice(),Phone3.phoneCategory());
